@@ -1,7 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-
+<style>
+    .direct-chat-text::after{
+        border-right-color: #007bff!important;
+    }
+</style>
 <div class="content-wrapper">
 
     <!-- Content Header (Page header) -->
@@ -41,8 +45,10 @@
                     <!-- form start -->
                         <div class="card-body pb-0">
                         <div class="form-group">
-                            <label> {{ $pertanyaan->judul }} </label><br>
-                            <small>{{ $pertanyaan->isi }}</small>
+                            <h3> {{ $pertanyaan->judul }} </h3>
+                            <small>Create {{ date('d-F-Y', strtotime($pertanyaan->created_at)) }}</small>&nbsp;|
+                            <small>Update {{ date('d-F-Y', strtotime($pertanyaan->updated_at)) }}</small><br><br>
+                            <span>{{ $pertanyaan->isi }}</span>
                         </div>
                         </div>
 
@@ -59,7 +65,7 @@
             <!-- /.row -->
             <div class="card direct-chat direct-chat-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Direct Chat</h3>
+                    <h3 class="card-title">Jawaban Pertanyaan</h3>
 
                     <div class="card-tools">
                     <span data-toggle="tooltip" title="3 New Messages" class="badge badge-primary"> {{ count($pertanyaan->jawaban) }} </span>
@@ -67,7 +73,7 @@
                             data-widget="chat-pane-toggle">
                         Komentar
                     </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
                         <i class="fas fa-minus"></i>
                     </button>
                     {{-- <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
@@ -107,7 +113,7 @@
                         <div class="input-group">
                         <input type="text" name="isi" placeholder="Masukkan Jawaban Kamu ..." class="form-control">
                         <span class="input-group-append">
-                            <button type="submit" class="btn btn-primary">Send</button>
+                            <button type="submit" class="btn btn-success">Send</button>
                         </span>
                         </div>
                     </form>
