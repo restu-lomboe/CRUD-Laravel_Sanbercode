@@ -61,7 +61,7 @@
             <!-- /.row -->
             <div class="card direct-chat direct-chat-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Direct Chat</h3>
+                    <h3 class="card-title">Jawaban Pertanyaan</h3>
 
                     <div class="card-tools">
                     <span data-toggle="tooltip" title="3 New Messages" class="badge badge-primary"> {{ count($pertanyaan->jawaban) }} </span>

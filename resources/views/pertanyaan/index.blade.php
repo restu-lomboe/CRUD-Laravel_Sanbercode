@@ -51,10 +51,10 @@
                                 {{ $tanya->judul }}
                                 <small> {{ $tanya->isi }} </small>
                                 <div>
-                                    <button type="submit" class="badge badge-danger badge-pill float-right border-0"><i class="fas fa-trash"></i></button>
-                                    <a href="{{ route('pertanyaan.edit', $tanya->id) }}"><span class="badge badge-success badge-pill float-right mr-2" title="Lihat Jawaban"><i class="fas fa-edit"></i></span></a>
+                                    <button type="submit" class="badge badge-danger badge-pill float-right border-0"><i class="fas fa-trash" title="Hapus Pertanyaan"></i></button>
+                                    <a href="{{ route('pertanyaan.edit', $tanya->id) }}"><span class="badge badge-success badge-pill float-right mr-2" title="Update Pertanyaan"><i class="fas fa-edit"></i></span></a>
                                     <a href="{{ route('pertanyaan.detail', $tanya->id) }}"><span class="badge badge-warning badge-pill float-right mr-2" title="Lihat Jawaban"><i class="fas fa-eye"></i></span></a>
-                                    <a href="{{ route('jawaban', $tanya->id) }}"><span class="badge badge-info badge-pill float-right mr-2" title="Lihat Jawaban"><i class="fas fa-reply"></i></span></a>
+                                    <a href="{{ route('jawaban', $tanya->id) }}"><span class="badge badge-info badge-pill float-right mr-2" title="Jawab Pertanyaan"><i class="fas fa-reply"></i></span></a>
                                 </div>
                             </li>
                         </form>
