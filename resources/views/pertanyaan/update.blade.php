@@ -36,19 +36,45 @@
                     <div class="card card-primary">
                     <div class="card-header">
                         <h3 class="card-title">Pertanyaan</h3>
+                        <div class="float-right">
+                            <span>Created {{ date('d-F-Y', strtotime($pertanyaan->created_at)) }}</span>
+                        </div>
                     </div>
                     <!-- /.card-header -->
+
                     <!-- form start -->
-                        <div class="card-body pb-0">
+                        {{-- <div class="card-body pb-0">
                         <div class="form-group">
                             <label> {{ $pertanyaan->judul }} </label><br>
                             <small>{{ $pertanyaan->isi }}</small>
                         </div>
-                        </div>
-
-                        {{-- <hr>
-                        <label class="ml-5">{{ count($pertanyaan->jawaban) }} Komentar <i class="far fa-comment-alt fa-2x"></i> </label>
-                        <hr> --}}
+                        </div> --}}
+                        <form class="form-horizontal" action=" {{ route('pertanyaan.update', $pertanyaan->id) }} " method="post">
+                            {{ csrf_field() }}
+                            {{ method_field('PUT') }}
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Judul</label>
+                                    <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="judul" value="{{ $pertanyaan->judul }}" placeholder="Masukkan Judul Pertanyaan kamu ...">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Isi</label>
+                                    <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="isi" value="{{ $pertanyaan->isi }}" placeholder="Masukkan isi Pertanyaan kamu ...">
+                                    </div>
+                                </div>
+                                <div class="float-right">
+                                    <span>Updated {{ date('d-F-Y', strtotime($pertanyaan->updated_at)) }}</span>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                              <button type="submit" class="btn btn-info float-right">Update</button>
+                            </div>
+                            <!-- /.card-footer -->
+                        </form>
 
                     </div>
                     <!-- /.card -->
@@ -101,18 +127,6 @@
                     <!--/.direct-chat-messages-->
                 </div>
                 <!-- /.card-body -->
-                <div class="card-footer">
-                    <form action="{{ route('jawaban.post', $pertanyaan->id) }}" method="post">
-                        {{ csrf_field() }}
-                        <div class="input-group">
-                        <input type="text" name="isi" placeholder="Masukkan Jawaban Kamu ..." class="form-control">
-                        <span class="input-group-append">
-                            <button type="submit" class="btn btn-primary">Send</button>
-                        </span>
-                        </div>
-                    </form>
-                </div>
-                <!-- /.card-footer-->
                 <!--/.direct-chat -->
             </div>
         </div><!-- /.container-fluid -->

@@ -38,17 +38,16 @@
                         <h3 class="card-title">Pertanyaan</h3>
                     </div>
                     <!-- /.card-header -->
-                    <!-- form start -->
-                        <div class="card-body pb-0">
-                        <div class="form-group">
-                            <label> {{ $pertanyaan->judul }} </label><br>
-                            <small>{{ $pertanyaan->isi }}</small>
-                        </div>
-                        </div>
 
-                        {{-- <hr>
-                        <label class="ml-5">{{ count($pertanyaan->jawaban) }} Komentar <i class="far fa-comment-alt fa-2x"></i> </label>
-                        <hr> --}}
+                    <!-- form start -->
+                    <div class="card-body pb-0">
+                        <div class="form-group">
+                            <h3> {{ $pertanyaan->judul }} </h3>
+                            <small>Create {{ date('d-F-Y', strtotime($pertanyaan->created_at)) }}</small>&nbsp;|
+                            <small>Update {{ date('d-F-Y', strtotime($pertanyaan->updated_at)) }}</small><br><br>
+                            <span>{{ $pertanyaan->isi }}</span>
+                        </div>
+                    </div>
 
                     </div>
                     <!-- /.card -->
@@ -101,18 +100,6 @@
                     <!--/.direct-chat-messages-->
                 </div>
                 <!-- /.card-body -->
-                <div class="card-footer">
-                    <form action="{{ route('jawaban.post', $pertanyaan->id) }}" method="post">
-                        {{ csrf_field() }}
-                        <div class="input-group">
-                        <input type="text" name="isi" placeholder="Masukkan Jawaban Kamu ..." class="form-control">
-                        <span class="input-group-append">
-                            <button type="submit" class="btn btn-primary">Send</button>
-                        </span>
-                        </div>
-                    </form>
-                </div>
-                <!-- /.card-footer-->
                 <!--/.direct-chat -->
             </div>
         </div><!-- /.container-fluid -->

@@ -21,6 +21,10 @@ Route::get('/data-tables', function (){
 Route::get('/pertanyaan', 'PertanyaanController@index')->name('pertanyaan');
 Route::get('/pertanyaan/create', 'PertanyaanController@create')->name('pertanyaan.create');
 Route::post('/pertanyaan', 'PertanyaanController@post')->name('pertanyaan.post');
+Route::get('/pertanyaan/{id}', 'PertanyaanController@detail')->name('pertanyaan.detail');
+Route::get('/pertanyaan/{id}/edit', 'PertanyaanController@edit')->name('pertanyaan.edit');
+Route::put('/pertanyaan/{id}', 'PertanyaanController@update')->name('pertanyaan.update');
+Route::delete('/pertanyaan/{id}', 'PertanyaanController@delete')->name('pertanyaan.delete');
 
 Route::get('/jawaban/{pertanyaan_id}', 'JawabanController@index')->name('jawaban');
 Route::post('/jawaban/{pertanyaan_id}/post', 'JawabanController@post')->name('jawaban.post');

@@ -12,7 +12,7 @@ class JawabanController extends Controller
     public function index($id)
     {
         $pertanyaan = Pertanyaan::find($id);
-        $jawaban = jawaban::whereIn('pertanyaan_id', [$id])->get();
+        // $jawaban = jawaban::whereIn('pertanyaan_id', [$id])->get();
         // dd($jawaban);
 
         return view ('jawaban.create', compact('pertanyaan', 'jawaban'));
